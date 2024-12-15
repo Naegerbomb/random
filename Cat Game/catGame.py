@@ -58,6 +58,9 @@ safe_zone_spawned = False
 game_over = False
 winner = None  # "dog", "cat", or "mice"
 
+cat_image = pygame.image.load("/Users/jamesnaeger/Documents/GitHub/random/Cat Game/cat pixelized.png")
+cat_image = pygame.transform.scale(cat_image, (CAT_SIZE, CAT_SIZE))
+
 def move_dog(dog):
     if dog.x > cat.x:
         dog.x -= int(dog_speed)
@@ -235,7 +238,7 @@ while running:
         pygame.draw.rect(screen, BLUE, safe_zone)
 
     # Draw cat, dogs, and mice
-    pygame.draw.rect(screen, GREEN, cat)
+    screen.blit(cat_image, (cat.x, cat.y))
     pygame.draw.rect(screen, RED, dog)
     if dog2:
         pygame.draw.rect(screen, RED, dog2)
